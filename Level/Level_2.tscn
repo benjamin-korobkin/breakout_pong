@@ -1,0 +1,252 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/ping_pong_8bit_beeep.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Level/Level.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Akshar/Akshar-VariableFont_wght.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Opponent/Opponent.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menu/Pause.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Brick/GreenBrick.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Brick/BlueBrick.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 17.1815, 512.565 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( -282.334, 2.011 )
+b = Vector2( 305.237, 0.479111 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 353.019, 11.5473 )
+
+[node name="Level_2" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.129412, 0.14902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountdownLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 144.0
+margin_bottom = -283.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.74902, 0.74902, 0.619608, 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerScore" type="Label" parent="."]
+margin_left = 53.5466
+margin_top = 3.1498
+margin_right = 177.547
+margin_bottom = 59.1498
+custom_fonts/font = SubResource( 2 )
+text = "Player: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OpponentScore" type="Label" parent="."]
+margin_left = 452.82
+margin_top = 4.59028
+margin_right = 608.82
+margin_bottom = 60.5903
+custom_fonts/font = SubResource( 3 )
+text = "Comp: 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 300, 785 )
+
+[node name="Opponent" parent="." instance=ExtResource( 5 )]
+position = Vector2( 309.449, 98.8949 )
+
+[node name="BorderLeft" type="StaticBody2D" parent="."]
+position = Vector2( -21.7486, 512.682 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LeftCollisionShape" type="CollisionShape2D" parent="BorderLeft"]
+position = Vector2( 1.60544, -0.37262 )
+shape = SubResource( 4 )
+
+[node name="BorderRight" type="StaticBody2D" parent="."]
+position = Vector2( 618.674, 509.519 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RightCollisionShape" type="CollisionShape2D" parent="BorderRight"]
+shape = SubResource( 4 )
+
+[node name="BallPlayer" parent="." instance=ExtResource( 6 )]
+position = Vector2( 300, 740 )
+
+[node name="BallOpponent" parent="." instance=ExtResource( 6 )]
+modulate = Color( 1, 0.960784, 0, 1 )
+position = Vector2( 305.67, 148.745 )
+
+[node name="OpponentGoal" type="Area2D" parent="."]
+position = Vector2( 289.604, 47.8869 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ollisionShape2D" type="CollisionShape2D" parent="OpponentGoal"]
+shape = SubResource( 5 )
+
+[node name="PlayerGoal" type="Area2D" parent="."]
+position = Vector2( 271.176, 841.875 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerGoal"]
+position = Vector2( 16.0362, -5.3454 )
+shape = SubResource( 5 )
+
+[node name="CountdownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="OpponentWall" type="StaticBody2D" parent="."]
+position = Vector2( -412.469, 242.527 )
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWall"]
+position = Vector2( 714.976, -171.882 )
+shape = SubResource( 6 )
+
+[node name="PlyrWall" type="StaticBody2D" parent="."]
+position = Vector2( -405.025, 222.541 )
+collision_layer = 8
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlyrWall"]
+position = Vector2( 718.427, 590.482 )
+shape = SubResource( 6 )
+
+[node name="Pause" parent="." instance=ExtResource( 7 )]
+
+[node name="GreenBrick" parent="." instance=ExtResource( 8 )]
+position = Vector2( 216, 416 )
+
+[node name="GreenBrick2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 168, 416 )
+
+[node name="GreenBrick3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 120, 416 )
+
+[node name="GreenBrick4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 72, 416 )
+
+[node name="GreenBrick5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 24, 416 )
+
+[node name="GreenBrick6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 264, 416 )
+
+[node name="GreenBrick7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 552, 416 )
+
+[node name="GreenBrick8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 504, 416 )
+
+[node name="GreenBrick9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 456, 416 )
+
+[node name="GreenBrick10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 408, 416 )
+
+[node name="GreenBrick11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 360, 416 )
+
+[node name="GreenBrick12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 360, 416 )
+
+[node name="BlueBrick" parent="." instance=ExtResource( 9 )]
+position = Vector2( 360, 440 )
+
+[node name="BlueBrick13" parent="." instance=ExtResource( 9 )]
+position = Vector2( 552, 392 )
+
+[node name="BlueBrick14" parent="." instance=ExtResource( 9 )]
+position = Vector2( 504, 392 )
+
+[node name="BlueBrick15" parent="." instance=ExtResource( 9 )]
+position = Vector2( 552, 440 )
+
+[node name="BlueBrick16" parent="." instance=ExtResource( 9 )]
+position = Vector2( 504, 440 )
+
+[node name="BlueBrick17" parent="." instance=ExtResource( 9 )]
+position = Vector2( 456, 440 )
+
+[node name="BlueBrick18" parent="." instance=ExtResource( 9 )]
+position = Vector2( 168, 392 )
+
+[node name="BlueBrick19" parent="." instance=ExtResource( 9 )]
+position = Vector2( 408, 440 )
+
+[node name="BlueBrick8" parent="." instance=ExtResource( 9 )]
+position = Vector2( 312, 440 )
+
+[node name="BlueBrick9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 312, 392 )
+
+[node name="BlueBrick10" parent="." instance=ExtResource( 9 )]
+position = Vector2( 264, 392 )
+
+[node name="BlueBrick11" parent="." instance=ExtResource( 9 )]
+position = Vector2( 360, 392 )
+
+[node name="BlueBrick12" parent="." instance=ExtResource( 9 )]
+position = Vector2( 216, 392 )
+
+[node name="BlueBrick2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 120, 392 )
+
+[node name="BlueBrick3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 72, 392 )
+
+[node name="BlueBrick4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 24, 392 )
+
+[node name="BlueBrick5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 408, 392 )
+
+[node name="BlueBrick6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 456, 392 )
+
+[node name="BlueBrick7" parent="." instance=ExtResource( 9 )]
+position = Vector2( 264, 440 )
+
+[connection signal="body_entered" from="OpponentGoal" to="." method="_on_BorderTop_body_entered"]
+[connection signal="body_entered" from="PlayerGoal" to="." method="_on_BorderBottom_body_entered"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
