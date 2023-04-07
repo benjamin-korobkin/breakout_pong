@@ -1,53 +1,141 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://GameAssets/Font/divlit.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GameAssets/Font/IBMPlexSans-Medium.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_top = 5
+extra_spacing_bottom = 4
+extra_spacing_char = 2
+extra_spacing_space = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+extra_spacing_char = 2
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+extra_spacing_char = 2
+font_data = ExtResource( 3 )
 
 [node name="Menu" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.499213
-anchor_right = 0.5
-anchor_bottom = 0.499213
-margin_left = -300.0
-margin_top = -400.0
-margin_right = 300.0
-margin_bottom = 400.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -31.5
-margin_top = -46.0
-margin_right = 31.5
-margin_bottom = 46.0
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.113725, 0.188235, 0.219608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-margin_right = 63.0
-margin_bottom = 20.0
-focus_neighbour_top = NodePath("../QuitButton")
-text = "Start"
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 63.0
-margin_bottom = 44.0
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 602.0
+margin_bottom = 575.0
+custom_fonts/font = SubResource( 1 )
+text = "
+                            BREAKOUT PONG
+
+ CONTROLS: left/right arrow keys or A/D
+
+ OBJECTIVE: Score points by breaking bricks or getting 
+  balls past your opponent
+
+ RULES: You and your opponent each have a colored ball.
+ When your ball breaks a brick, you earn points. Stronger 
+ bricks earn you more points! When all bricks are cleared from
+ the level, the player with the most points wins.
+ 
+ If ANY ball passes your opponent's goal, the board resets and
+ you earn points. If their goal is breached 5 times, you win!
+ The same rules apply to your opponent.
+                    GOOD LUCK AND HAVE FUN! "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+margin_top = 579.0
+margin_right = 602.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_right = 602.0
+margin_bottom = 115.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_top = 5
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 10
+
+[node name="StartButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer"]
+margin_left = 100.0
+margin_top = 5.0
+margin_right = 502.0
+margin_bottom = 105.0
+focus_neighbour_top = NodePath("../QuitButton")
+custom_fonts/font = SubResource( 2 )
+text = "START"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_top = 125.0
+margin_right = 602.0
+margin_bottom = 168.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 5
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 10
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer2"]
+margin_left = 100.0
+margin_top = 5.0
+margin_right = 502.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 3 )
 text = "Credits"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 48.0
-margin_right = 63.0
-margin_bottom = 68.0
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_top = 178.0
+margin_right = 602.0
+margin_bottom = 221.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 5
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 10
+
+[node name="QuitButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer3"]
+margin_left = 100.0
+margin_top = 5.0
+margin_right = 502.0
+margin_bottom = 33.0
 focus_neighbour_bottom = NodePath("../StartButton")
+custom_fonts/font = SubResource( 4 )
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/MarginContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/MarginContainer2/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_QuitButton_pressed"]

@@ -7,7 +7,6 @@
 [ext_resource path="res://Level/Level.gd" type="Script" id=5]
 [ext_resource path="res://Brick/BlueBrick.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Akshar/Akshar-VariableFont_wght.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Brick/GreenBrick.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
@@ -32,19 +31,32 @@ b = Vector2( 305.237, 0.479111 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 353.019, 11.5473 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 353.019, 11.5473 )
+
 [node name="Level_1" type="Node"]
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
+anchor_left = -0.00117849
+anchor_right = 0.998821
 anchor_bottom = 1.0
 color = Color( 0.0784314, 0.129412, 0.14902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CountdownLabel" type="Label" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
 anchor_right = 1.0
+margin_bottom = 53.0
+color = Color( 0.270588, 0.262745, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CountdownLabel" type="Label" parent="."]
+anchor_left = -0.00117854
+anchor_right = 0.998821
 anchor_bottom = 1.0
 margin_top = 104.0
 margin_bottom = -323.0
@@ -58,10 +70,13 @@ __meta__ = {
 }
 
 [node name="PlayerScore" type="Label" parent="."]
+anchor_left = 0.00117849
+anchor_right = 0.00117849
+anchor_bottom = 9.53674e-09
 margin_left = 53.5466
-margin_top = 3.1498
+margin_top = -5.33549
 margin_right = 177.547
-margin_bottom = 59.1498
+margin_bottom = 50.6645
 custom_fonts/font = SubResource( 2 )
 text = "Player: 0"
 __meta__ = {
@@ -69,10 +84,10 @@ __meta__ = {
 }
 
 [node name="OpponentScore" type="Label" parent="."]
-margin_left = 452.82
-margin_top = 4.59028
-margin_right = 608.82
-margin_bottom = 60.5903
+margin_left = 454.234
+margin_top = -4.60212
+margin_right = 610.234
+margin_bottom = 51.3979
 custom_fonts/font = SubResource( 3 )
 text = "Comp: 0"
 __meta__ = {
@@ -83,7 +98,7 @@ __meta__ = {
 position = Vector2( 300, 785 )
 
 [node name="Opponent" parent="." instance=ExtResource( 1 )]
-position = Vector2( 309.449, 98.8949 )
+position = Vector2( 304.95, 96.8701 )
 
 [node name="BorderLeft" type="StaticBody2D" parent="."]
 position = Vector2( -21.7486, 512.682 )
@@ -134,13 +149,42 @@ one_shot = true
 [node name="ScoreSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
+[node name="Pause" parent="." instance=ExtResource( 2 )]
+
+[node name="BlueBrick" parent="." instance=ExtResource( 6 )]
+position = Vector2( 352, 440 )
+
+[node name="BlueBrick2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 408, 440 )
+
+[node name="BlueBrick6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 464, 440 )
+
+[node name="BlueBrick7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 520, 440 )
+
+[node name="BlueBrick3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 240, 440 )
+
+[node name="BlueBrick4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 296, 440 )
+
+[node name="BlueBrick5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 184.638, 440 )
+
+[node name="BlueBrick9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 128, 440 )
+
+[node name="BlueBrick10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 72, 440 )
+
 [node name="OpponentWall" type="StaticBody2D" parent="."]
 position = Vector2( -412.469, 242.527 )
 collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpponentWall"]
-position = Vector2( 714.976, -171.882 )
+position = Vector2( 724.875, -175.418 )
 shape = SubResource( 6 )
 
 [node name="PlyrWall" type="StaticBody2D" parent="."]
@@ -150,98 +194,7 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlyrWall"]
 position = Vector2( 718.427, 590.482 )
-shape = SubResource( 6 )
-
-[node name="Pause" parent="." instance=ExtResource( 2 )]
-
-[node name="GreenBrick" parent="." instance=ExtResource( 8 )]
-position = Vector2( 216, 416 )
-
-[node name="GreenBrick2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 168, 416 )
-
-[node name="GreenBrick3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 120, 416 )
-
-[node name="GreenBrick4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 72, 416 )
-
-[node name="GreenBrick5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 24, 416 )
-
-[node name="BlueBrick" parent="." instance=ExtResource( 6 )]
-position = Vector2( 360, 440 )
-
-[node name="BlueBrick13" parent="." instance=ExtResource( 6 )]
-position = Vector2( 552, 392 )
-
-[node name="BlueBrick14" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 504, 392 )
-
-[node name="BlueBrick15" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 552, 440 )
-
-[node name="BlueBrick16" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 504, 440 )
-
-[node name="BlueBrick17" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 456, 440 )
-
-[node name="BlueBrick18" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 168, 392 )
-
-[node name="BlueBrick19" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 408, 440 )
-
-[node name="BlueBrick8" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 312, 440 )
-
-[node name="BlueBrick9" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 312, 392 )
-
-[node name="BlueBrick10" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 264, 392 )
-
-[node name="BlueBrick11" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 360, 392 )
-
-[node name="BlueBrick12" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 216, 392 )
-
-[node name="BlueBrick2" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 120, 392 )
-
-[node name="BlueBrick3" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 72, 392 )
-
-[node name="BlueBrick4" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 24, 392 )
-
-[node name="BlueBrick5" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 408, 392 )
-
-[node name="BlueBrick6" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 456, 392 )
-
-[node name="BlueBrick7" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 264, 440 )
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="OpponentGoal" to="." method="_on_BorderTop_body_entered"]
 [connection signal="body_entered" from="PlayerGoal" to="." method="_on_BorderBottom_body_entered"]

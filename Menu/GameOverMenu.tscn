@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menu/GameOverMenu.gd" type="Script" id=1]
+[ext_resource path="res://GameAssets/Font/IBMPlexSans-Medium.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 36
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_char = 2
+font_data = ExtResource( 2 )
 
 [node name="GameOverMenu" type="Control"]
 anchor_right = 1.0
@@ -12,34 +25,96 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 1.0
+[node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -64.0
-margin_bottom = -4.0
+margin_top = 50.0
+color = Color( 0.113725, 0.188235, 0.219608, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TryAgainButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer2"]
 margin_right = 600.0
-margin_bottom = 20.0
-text = "Try Again"
+margin_bottom = 398.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_top = 5
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 10
 
-[node name="TextEdit" type="TextEdit" parent="."]
-anchor_left = 0.5
-anchor_top = 0.422
-anchor_right = 0.5
-anchor_bottom = 0.422
-margin_left = -43.0
-margin_top = -20.6
-margin_right = 54.0
-margin_bottom = 12.4
-text = "  GAME OVER"
-readonly = true
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer4"]
+margin_left = 100.0
+margin_top = 164.0
+margin_right = 500.0
+margin_bottom = 228.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+text = "GAME OVER"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+margin_top = 402.0
+margin_right = 600.0
+margin_bottom = 800.0
+rect_pivot_offset = Vector2( -503.109, -147.155 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="VBoxContainer/TryAgainButton" to="." method="_on_TryAgainButton_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer"]
+margin_left = 100.0
+margin_right = 500.0
+margin_bottom = 189.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+text = "Main Menu"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
+margin_top = 209.0
+margin_right = 600.0
+margin_bottom = 398.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_top = 25
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+
+[node name="QuitButton" type="Button" parent="VBoxContainer2/VBoxContainer/MarginContainer3"]
+margin_left = 100.0
+margin_top = 25.0
+margin_right = 500.0
+margin_bottom = 89.0
+focus_neighbour_bottom = NodePath("../StartButton")
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/MarginContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

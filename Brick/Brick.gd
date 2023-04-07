@@ -20,3 +20,5 @@ func got_hit(ball: KinematicBody2D):
 	if animatedSprite.frame + 1 < frames.get_frame_count("default"):
 		animatedSprite.frame += 1
 	health -= 1
+	
+

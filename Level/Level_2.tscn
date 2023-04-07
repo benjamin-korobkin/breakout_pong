@@ -43,11 +43,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 53.0
+color = Color( 0.270588, 0.262745, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CountdownLabel" type="Label" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 144.0
-margin_bottom = -283.0
+margin_top = 152.0
+margin_bottom = -275.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.74902, 0.74902, 0.619608, 1 )
 text = "2"
@@ -155,97 +163,112 @@ shape = SubResource( 6 )
 [node name="Pause" parent="." instance=ExtResource( 7 )]
 
 [node name="GreenBrick" parent="." instance=ExtResource( 8 )]
-position = Vector2( 216, 416 )
+position = Vector2( 232, 416 )
 
 [node name="GreenBrick2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 168, 416 )
+position = Vector2( 184, 416 )
 
 [node name="GreenBrick3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 120, 416 )
+position = Vector2( 136, 416 )
 
 [node name="GreenBrick4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 72, 416 )
+position = Vector2( 88, 416 )
 
 [node name="GreenBrick5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 24, 416 )
+position = Vector2( 328, 416 )
 
 [node name="GreenBrick6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 264, 416 )
+position = Vector2( 280, 416 )
 
 [node name="GreenBrick7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 552, 416 )
+position = Vector2( 568, 416 )
 
 [node name="GreenBrick8" parent="." instance=ExtResource( 8 )]
-position = Vector2( 504, 416 )
+position = Vector2( 40, 416 )
 
 [node name="GreenBrick9" parent="." instance=ExtResource( 8 )]
-position = Vector2( 456, 416 )
+position = Vector2( 520, 416 )
 
 [node name="GreenBrick10" parent="." instance=ExtResource( 8 )]
-position = Vector2( 408, 416 )
+position = Vector2( 472, 416 )
 
 [node name="GreenBrick11" parent="." instance=ExtResource( 8 )]
-position = Vector2( 360, 416 )
+position = Vector2( 376, 416 )
 
 [node name="GreenBrick12" parent="." instance=ExtResource( 8 )]
-position = Vector2( 360, 416 )
+position = Vector2( 424, 416 )
 
 [node name="BlueBrick" parent="." instance=ExtResource( 9 )]
-position = Vector2( 360, 440 )
+position = Vector2( 376, 440 )
 
 [node name="BlueBrick13" parent="." instance=ExtResource( 9 )]
-position = Vector2( 552, 392 )
+position = Vector2( 568, 392 )
 
 [node name="BlueBrick14" parent="." instance=ExtResource( 9 )]
-position = Vector2( 504, 392 )
+position = Vector2( 520, 392 )
 
 [node name="BlueBrick15" parent="." instance=ExtResource( 9 )]
-position = Vector2( 552, 440 )
+position = Vector2( 568, 440 )
 
 [node name="BlueBrick16" parent="." instance=ExtResource( 9 )]
-position = Vector2( 504, 440 )
+position = Vector2( 520, 440 )
 
 [node name="BlueBrick17" parent="." instance=ExtResource( 9 )]
-position = Vector2( 456, 440 )
+position = Vector2( 472, 440 )
 
 [node name="BlueBrick18" parent="." instance=ExtResource( 9 )]
-position = Vector2( 168, 392 )
+position = Vector2( 184, 392 )
 
 [node name="BlueBrick19" parent="." instance=ExtResource( 9 )]
-position = Vector2( 408, 440 )
+position = Vector2( 424, 440 )
 
 [node name="BlueBrick8" parent="." instance=ExtResource( 9 )]
-position = Vector2( 312, 440 )
+position = Vector2( 328, 440 )
 
 [node name="BlueBrick9" parent="." instance=ExtResource( 9 )]
-position = Vector2( 312, 392 )
+position = Vector2( 328, 392 )
 
 [node name="BlueBrick10" parent="." instance=ExtResource( 9 )]
-position = Vector2( 264, 392 )
+position = Vector2( 280, 392 )
 
 [node name="BlueBrick11" parent="." instance=ExtResource( 9 )]
-position = Vector2( 360, 392 )
+position = Vector2( 376, 392 )
 
 [node name="BlueBrick12" parent="." instance=ExtResource( 9 )]
-position = Vector2( 216, 392 )
+position = Vector2( 232, 392 )
 
 [node name="BlueBrick2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 120, 392 )
+position = Vector2( 136, 392 )
 
 [node name="BlueBrick3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 72, 392 )
+position = Vector2( 88, 392 )
 
 [node name="BlueBrick4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 24, 392 )
+position = Vector2( 40, 392 )
 
 [node name="BlueBrick5" parent="." instance=ExtResource( 9 )]
-position = Vector2( 408, 392 )
+position = Vector2( 424, 392 )
 
 [node name="BlueBrick6" parent="." instance=ExtResource( 9 )]
-position = Vector2( 456, 392 )
+position = Vector2( 472, 392 )
 
 [node name="BlueBrick7" parent="." instance=ExtResource( 9 )]
-position = Vector2( 264, 440 )
+position = Vector2( 280, 440 )
+
+[node name="BlueBrick20" parent="." instance=ExtResource( 9 )]
+position = Vector2( 232, 440 )
+
+[node name="BlueBrick21" parent="." instance=ExtResource( 9 )]
+position = Vector2( 184, 440 )
+
+[node name="BlueBrick22" parent="." instance=ExtResource( 9 )]
+position = Vector2( 88, 440 )
+
+[node name="BlueBrick23" parent="." instance=ExtResource( 9 )]
+position = Vector2( 40, 440 )
+
+[node name="BlueBrick24" parent="." instance=ExtResource( 9 )]
+position = Vector2( 136, 440 )
 
 [connection signal="body_entered" from="OpponentGoal" to="." method="_on_BorderTop_body_entered"]
 [connection signal="body_entered" from="PlayerGoal" to="." method="_on_BorderBottom_body_entered"]

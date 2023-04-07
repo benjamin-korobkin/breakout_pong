@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var ball_speed: int = 300
+export var ball_speed: int = 350
 var speed
 var velocity = Vector2.ZERO
 
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		var reflect = collision_object.remainder.bounce(normal)
 		velocity = velocity.bounce(normal)
 		move_and_collide(reflect)
-		if collider.is_in_group('BrickGroup'):
+		if collider.is_in_group("BrickGroup"):
 			collider.got_hit(self)
 		
 

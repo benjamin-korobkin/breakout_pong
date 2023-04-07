@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed: int = 600
+export var speed: int = 700
 var plyrBall
 var aiBall
 
@@ -13,7 +13,7 @@ func _physics_process(_delta: float) -> void:
 	
 func get_direction():
 	var ball
-	if plyrBall.position.y < aiBall.position.x:
+	if plyrBall.position.y < aiBall.position.y:
 		ball = plyrBall
 	else:
 		ball = aiBall
