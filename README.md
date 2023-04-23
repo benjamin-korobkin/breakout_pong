@@ -1,2 +1,2 @@
 # breakout_pong
-a small project to introduce myself to godot
+a concept game combining pong and breakout. Built with Godot 3.3
